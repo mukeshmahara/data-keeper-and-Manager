@@ -1,10 +1,11 @@
 const axios = require('axios');
-const port = process.env.PORT ||3000;
+
 
 
 
 exports.homeRoutes = (req,res)=>{
     //Making a get request call to api/users
+    const port = process.env.PORT ||3000;
     axios.get(`http://localhost:${port}/api/users`).then(response=>{
         
         res.render('index',{title:"home",users:response.data});
