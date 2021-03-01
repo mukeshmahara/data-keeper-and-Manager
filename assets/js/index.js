@@ -1,3 +1,5 @@
+const port = process.env.PORT||3000;
+
 $("#add_user").submit(function (event) {
   swal({
     title: "Good job!",
@@ -19,7 +21,7 @@ $("#update_user").submit(function (event) {
   console.log(data);
 
   var request = {
-    url: `http://localhost:3000/api/users/${data.id}`,
+    url: `http://localhost:${port}/api/users/${data.id}`,
     method: "PUT",
     data: data,
   };
@@ -38,7 +40,7 @@ if (window.location.pathname == "/") {
   $ondelete.click(function () {
     var id = $(this).attr("data-id");
     var request = {
-      url: `http://localhost:3000/api/users/${id}`,
+      url: `http://localhost:${port}/api/users/${id}`,
       method: "DELETE",
     };
 
