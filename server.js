@@ -5,15 +5,18 @@ const bodyparser = require('body-parser');
 const path = require('path');
 const connectDB = require('./server/database/connection');
 const app = express();
+const cors = require('cors');
 
 const port = process.env.PORT ||3000;
 
 dotenv.config({path:'config.env'});
 
 
+
 //log request
 app.use(morgan('tiny'));
 
+app.use(cors);
 // mongoDB connection
 connectDB();
 
