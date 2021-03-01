@@ -1,0 +1,91 @@
+<%-include('include/_header')-%>
+
+<main id="site-main">
+  <div class="container">
+    <div class="box-nav d-flex-justify-between">
+      <div class="filter">
+        <a href="/"><i class="fas fa-angle-double-left"></i> All Users</a>
+      </div>
+    </div>
+    <div class="form-title text-center">
+      <h2 class="text-dark">Update User</h2>
+      <span class="text-dark">Use the below form to Update an account</span>
+    </div>
+    <!-- adding user form -->
+    <!-- Form hadndelling -->
+
+
+    <form  method="POST" id="update_user">
+      <div class="new_user">
+        <div class="form-group">
+          <label for="name" class="text-dark">Name</label>
+          <input type="hidden"  name="id" value="<%=user._id%>" />
+          <input type="text" name="name" value="<%=user.name%>" placeholder="Username" />
+        </div>
+        <div class="form-group">
+          <label for="email" class="text-dark">Email</label>
+          
+          <input
+            type="text"
+            name="email"
+            id="email"
+            value="<%=user.email%>"
+            placeholder="your Email address"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="gender" class="text-dark">Gender</label>
+          <div class="radio inline">
+            
+              <%console.log(user)%>
+            <input type="radio" id="genderMale" name="gender" value="Male"  <%= user.gender =='Male' ? 'checked' : '' %>  >
+            
+            <label for="genderMale" class="radio-label">Male</label>
+          </div>
+          <div class="radio inline">
+            &nbsp;
+            <input
+              type="radio"
+              id="genderFemale"
+              name="gender"
+              value="Female"
+              <%= user.gender =='Female' ? 'checked' : '' %> 
+              />
+            <label for="genderFemale" class="radio-label"> Female</label>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="status" class="text-dark">Status &nbsp;</label>
+          <div class="radio inline">
+            <input
+              type="radio"
+              id="statusActive"
+              name="status"
+              value="Active"
+              <%= user.status =='Active' ? 'checked' : '' %> 
+            />
+            <label for="statusActive" class="radio-label">Active</label>
+          </div>
+          <div class="radio inline">
+            <input
+              type="radio"
+              id="statusInactive"
+              name="status"
+              value="Inactive"
+              <%= user.status =='Inactive' ? 'checked' : '' %> 
+            />
+            <label for="statusInactive" class="radio-label">Inactive</label>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <input type="submit" class="btn text-dark update" value="Save" />
+        </div>
+      </div>
+    </form>
+  </div>
+</main>
+
+<%-include('include/_footer')-%>
