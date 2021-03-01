@@ -1,7 +1,7 @@
 const axios = require('axios');
 
 
-exports.port = process.env.PORT;
+const port = process.env.PORT;
 
 exports.homeRoutes = (req,res)=>{
     //Making a get request call to api/users
